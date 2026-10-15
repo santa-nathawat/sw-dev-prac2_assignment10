@@ -1,4 +1,4 @@
-interface VenueItem {
+export interface VenueItem {
     _id: string,
     name: string,
     address: string,
@@ -12,9 +12,14 @@ interface VenueItem {
     id: string
   }
   
-  interface VenueJson {
+  export interface VenueJson {
     success: boolean,
     count: number,
-    pagination: Object,
+    pagination: { next?: { page: number; limit: number }; prev?: { page: number; limit: number } },
     data: VenueItem[]
   }
+
+export interface VenueDetailJson {
+  success: boolean;
+  data: VenueItem;
+}
